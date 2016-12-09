@@ -1,0 +1,53 @@
+//Exrcício 1
+//Na coleção Vocabulary
+//A) Utilizando as funções de mapReduce do mongo, conte o número de
+//palavras que terminam em ar, er, ir, or, ur.
+
+var map = function(){
+    emit(this.text.substring(this.text.length-2,this.text.length),1);
+}
+
+var reduce = function(key, values){
+    return Array.sum(values);
+}
+
+db.Vocabulary.mapReduce(map,reduce,{query:
+{
+        text:  /((ar)|(er)|(ir))$/
+}
+ , out:"resultado"})
+
+
+db.resultado.find()
+
+
+//B) Utilizando as funções de mapReduce do mongo, conte o total de cada
+//caracter existente no vocabulario. Por exemplo:
+//aula -> a:2, u:1, l:1
+
+var map = function(){
+    if (this.text == undefined) return;
+
+    for (var letra = 0; letra < this.text.length; letra++){
+          emit(this.text[letra], 1);
+    }
+}
+
+var reduce = function(key, value){
+    return Array.sum(value);
+}
+
+db.Vocabulary.mapReduce(map, reduce, {query:{}, out:"Resultado"})
+
+//Exercício 2
+//Utilizando a função de agregação contar quantos itens cujo o campo total seja
+//maior do que 1000, agrupando-os por tipo, (campo type) e exiba o resultado em
+//ordem crescente.
+
+db.Vocabulary.aggregate(
+    [
+        {"$match": {"total": {"$gt": 1000}}},
+        {"$group": {"_id": "$type"}},
+        {"$sort": {"_id": 1}}
+    ]
+)

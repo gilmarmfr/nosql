@@ -1,0 +1,38 @@
+Grupo 1 - O MongoDB aplicado ao CartolaFC
+
+        Apresentação focada nas funcionalidades da aplicação, relacioando-as com
+        características do MongoDB
+	Foram apresentados dados de acesso de 2011. Poderiam ser mais atuais.		
+        Nota 10
+
+Grupo 2 - Ebay utilizando NEO4J
+
+	Aplicação em logística
+        Apresentação técnica e um pouco pesada
+	Nota 10
+
+Grupo 3 - Leroy Merlin
+
+	Foi descrita a relação da aplicaçao com o cliente.
+	Muita informação técnica
+	Interessante uma entrevista com um desenvolvedor da empresa.
+	Nota 10
+
+Grupo 4 - Case Telefônica
+
+	Boa contextualização do problema e da arquitetura anterior.
+	Detalhes das fases do projeto e do serviços ofertados
+	Nota 10
+
+Grupo 5 - Nosql na Netflix
+
+	Foco na necessidade da mudança
+	Banco de dados como serviço
+	Escabilidade
+	Ordem dos assuntos um pouco confusa.
+	Nota 10
+
+Grupo 6 - Cassandra em dados biológicos
+	Elaborado a partir de um trabalho acadêmico
+	Explicação sobre teorema CAP não muito clara.
+	Nota 10

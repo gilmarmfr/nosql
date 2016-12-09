@@ -1,0 +1,33 @@
+// Pesquisa
+db.Vocabulary.find({text: "feliz"}).explain({"executionStats":1})
+
+// Exibe tempo de busca e objetosconsultados
+"executionTimeMillis": 172,
+"totalDocsExamined": 291214,
+
+// Cria índice e verifica se ele foi criado
+
+db.Vocabulary.createIndex({"text": 1}, {expireAfterSeconds: 3600})
+db.Vocabulary.getIndexes()
+
+// Resultado
+  {
+    "v": 1,
+    "key": {
+      "text": 1
+    },
+    "name": "text_1",
+    "ns": "nosqlclass.Vocabulary",
+    "expireAfterSeconds": 3600
+  }
+
+// Refaz pesquisa
+db.Vocabulary.find({text: "feliz"}).explain({"executionStats":1})
+
+// Resultado
+
+"executionTimeMillis": 18,
+
+// Remove índice 
+
+db.Vocabulary.dropIndex('text_1')
